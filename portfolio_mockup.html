@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Mercer | Performance Marketing Strategist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal focus
+                            600: '#0d9488',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    },
+                    boxShadow: {
+                        'apple': '0 4px 24px -6px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0,0,0,0.1)',
+                        'floating': '0 20px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FAFAFA; color: #0f172a; overflow-x: hidden; }
+        
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Mesh Gradient Background for Hero */
+        .mesh-bg {
+            background-color: #FAFAFA;
+            background-image: 
+                radial-gradient(at 10% 20%, hsla(170,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(255,100%,93%,0.2) 0px, transparent 50%);
+        }
+
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tighter flex items-center gap-2 text-slate-900">
+                <div class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white text-sm">AM</div>
+                Alex Mercer
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-brand-600 transition-colors">About</a>
+                <a href="#skills" class="hover:text-brand-600 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-brand-600 transition-colors">Work</a>
+                <a href="#process" class="hover:text-brand-600 transition-colors">Process</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex bg-slate-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition-colors items-center gap-2">
+                Let's Talk <i class="ph ph-arrow-right"></i>
+            </a>
+            <button class="md:hidden text-2xl text-slate-900"><i class="ph ph-list"></i></button>
+        </div>
+    </nav>
+
+    <section class="mesh-bg min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-8 reveal">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 border border-brand-100 text-brand-600 text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        Available for new opportunities
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                        Driving <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-600">Growth</span> Through Data-Driven Marketing.
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-slate-500 max-w-lg leading-relaxed">
+                        I am a Senior Performance Marketer helping ambitious startups and enterprise brands scale revenue profitably using advanced paid acquisition, conversion optimization, and analytics.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-full font-medium hover:shadow-floating hover:-translate-y-1 transition-all duration-300">
+                            View Case Studies
+                        </a>
+                        <a href="https://calendly.com" target="_blank" class="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-full font-medium hover:bg-slate-50 transition-all flex items-center gap-2">
+                            <i class="ph ph-calendar-plus text-xl"></i> Book Discovery Call
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 pt-4 text-slate-400">
+                        <a href="#" class="hover:text-brand-600 transition-colors text-2xl"><i class="ph-fill ph-linkedin-logo"></i></a>
+                        <a href="#" class="hover:text-brand-600 transition-colors text-2xl"><i class="ph-fill ph-twitter-logo"></i></a>
+                        <a href="#" class="hover:text-brand-600 transition-colors text-2xl"><i class="ph-fill ph-envelope-simple"></i></a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual / Floating Cards -->
+                <div class="relative h-[500px] hidden lg:block reveal delay-200">
+                    <img src="https://placehold.co/600x800/f8fafc/0f172a?text=Alex+Mercer\nProfessional+Headshot" alt="Alex Mercer" class="absolute top-1/2 right-12 -translate-y-1/2 w-80 h-[450px] object-cover rounded-3xl shadow-apple z-0 border-8 border-white">
+                    
+                    <!-- Floating Stat Card 1 -->
+                    <div class="absolute top-20 left-0 bg-white p-5 rounded-2xl shadow-floating border border-slate-100 z-10 w-64 animate-[bounce_6s_ease-in-out_infinite]">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                                <i class="ph-fill ph-trend-up text-xl"></i>
+                            </div>
+                            <span class="text-sm font-semibold text-slate-500">Avg. ROAS</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-slate-900">4.8x</h3>
+                        <p class="text-xs text-green-500 mt-1 font-medium">+1.2x YoY Growth</p>
+                    </div>
+
+                    <!-- Floating Stat Card 2 -->
+                    <div class="absolute bottom-24 -right-8 bg-white p-5 rounded-2xl shadow-floating border border-slate-100 z-10 w-56 animate-[bounce_5s_ease-in-out_infinite_reverse]">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                <i class="ph-fill ph-users text-xl"></i>
+                            </div>
+                            <span class="text-sm font-semibold text-slate-500">Leads Gen</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-slate-900">50K+</h3>
+                        <p class="text-xs text-blue-500 mt-1 font-medium">High Intent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <a href="#stats" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 hover:text-brand-600 transition-colors animate-bounce">
+            <i class="ph ph-mouse-simple text-3xl"></i>
+        </a>
+    </section>
+
+    <section id="stats" class="py-16 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-slate-100">
+                <div class="text-center reveal">
+                    <h3 class="text-4xl font-black text-slate-900 tracking-tight flex justify-center items-center">
+                        <span class="text-brand-500 mr-1">$</span><span class="counter" data-target="20">0</span>M+
+                    </h3>
+                    <p class="text-sm text-slate-500 font-medium mt-2 uppercase tracking-wide">Ad Spend Managed</p>
+                </div>
+                <div class="text-center reveal delay-100">
+                    <h3 class="text-4xl font-black text-slate-900 tracking-tight flex justify-center items-center">
+                        <span class="counter" data-target="50">0</span>+
+                    </h3>
+                    <p class="text-sm text-slate-500 font-medium mt-2 uppercase tracking-wide">Scale-up Campaigns</p>
+                </div>
+                <div class="text-center reveal delay-200">
+                    <h3 class="text-4xl font-black text-slate-900 tracking-tight flex justify-center items-center">
+                        <span class="counter" data-target="98">0</span>%
+                    </h3>
+                    <p class="text-sm text-slate-500 font-medium mt-2 uppercase tracking-wide">Client Satisfaction</p>
+                </div>
+                <div class="text-center reveal delay-300">
+                    <h3 class="text-4xl font-black text-slate-900 tracking-tight flex justify-center items-center">
+                        <span class="counter" data-target="8">0</span>
+                    </h3>
+                    <p class="text-sm text-slate-500 font-medium mt-2 uppercase tracking-wide">Industries Mastered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative reveal">
+                    <div class="aspect-square rounded-3xl overflow-hidden shadow-apple relative z-10 bg-white p-4">
+                        <img src="https://placehold.co/800x800/e2e8f0/64748b?text=Working+in+Studio" alt="Alex working" class="w-full h-full object-cover rounded-2xl">
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-6 -right-6 w-3/4 h-3/4 bg-brand-100 rounded-3xl z-0"></div>
+                </div>
+                
+                <div class="space-y-6 reveal">
+                    <h2 class="text-sm font-bold text-brand-600 tracking-widest uppercase">About Me</h2>
+                    <h3 class="text-4xl font-bold text-slate-900 tracking-tight">I bridge the gap between creative storytelling and hard analytics.</h3>
+                    
+                    <div class="space-y-4 text-slate-600 text-lg leading-relaxed">
+                        <p>
+                            For the past 7 years, I’ve been obsessed with one question: <em>How do we predictably acquire customers at a profit?</em>
+                        </p>
+                        <p>
+                            Starting my career in a fast-paced agency, I learned the ropes of media buying under pressure. Moving in-house to a B2B SaaS startup, I built the entire demand generation engine from scratch, scaling ARR from $1M to $10M within 18 months.
+                        </p>
+                        <p>
+                            <strong>What makes me different?</strong> I don't just launch ads. I map out the entire customer journey. If the ads are working but the landing page isn't converting, I fix the page. If the leads are cheap but unqualified, I redefine the tracking and CRM routing. I am a full-funnel growth partner.
+                        </p>
+                    </div>
+                    
+                    <div class="pt-6 grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-brand-500 text-xl"><i class="ph-fill ph-rocket-launch"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">SaaS & Tech</h4>
+                                <p class="text-xs text-slate-500">Core Expertise</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-brand-500 text-xl"><i class="ph-fill ph-shopping-cart"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">E-Commerce</h4>
+                                <p class="text-xs text-slate-500">Scaling D2C</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-sm font-bold text-brand-600 tracking-widest uppercase mb-2">My Arsenal</h2>
+                <h3 class="text-4xl font-bold text-slate-900 tracking-tight">Tools & Technologies</h3>
+                <p class="text-slate-500 mt-4 text-lg">A comprehensive toolkit spanning media buying, analytics, and creative execution.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill Category 1 -->
+                <div class="bento-card p-8 reveal lg:col-span-2 bg-gradient-to-br from-slate-50 to-slate-100/50">
+                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-600 text-2xl mb-6">
+                        <i class="ph-fill ph-target"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">Performance Marketing</h4>
+                    <p class="text-slate-500 mb-6 text-sm">Managing large-scale budgets focusing strictly on ROAS, CAC, and LTV optimization.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-700 shadow-sm">Meta Ads</span>
+                        <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-700 shadow-sm">Google Ads (Search & PMax)</span>
+                        <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-700 shadow-sm">LinkedIn Ads</span>
+                        <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-700 shadow-sm">TikTok Ads</span>
+                        <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-700 shadow-sm">Programmatic Display</span>
+                        <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-700 shadow-sm">Retargeting Funnels</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 2 -->
+                <div class="bento-card p-8 reveal bg-slate-900 text-white">
+                    <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-brand-400 text-2xl mb-6">
+                        <i class="ph-fill ph-chart-line-up"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Analytics & Tracking</h4>
+                    <p class="text-slate-400 mb-6 text-sm">Data is useless if it's inaccurate. I build robust tracking architectures.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-medium text-slate-200">GA4</span>
+                        <span class="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-medium text-slate-200">GTM (Server-side)</span>
+                        <span class="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-medium text-slate-200">Looker Studio</span>
+                        <span class="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-medium text-slate-200">Mixpanel</span>
+                        <span class="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-medium text-slate-200">Supermetrics</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 3 -->
+                <div class="bento-card p-8 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 text-2xl mb-6">
+                        <i class="ph-fill ph-funnel"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">CRO & Landing Pages</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Webflow</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Framer</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Unbounce</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">VWO / Optimizely</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Hotjar</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 4 -->
+                <div class="bento-card p-8 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 text-2xl mb-6">
+                        <i class="ph-fill ph-paint-brush"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">Creative & Copy</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Ad Copywriting</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Figma</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Canva Pro</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">UGC Scripting</span>
+                    </div>
+                </div>
+                
+                 <!-- Skill Category 5 -->
+                 <div class="bento-card p-8 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600 text-2xl mb-6">
+                        <i class="ph-fill ph-robot"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">CRM & Automation</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">HubSpot</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Salesforce</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">Zapier / Make</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-sm font-medium text-slate-700">ActiveCampaign</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-900/30 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[100px] -z-10 -translate-x-1/3 translate-y-1/3"></div>
+
+        <div class="max-w-7xl mx-auto px-6 z-10 relative">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-brand-400 text-xs font-bold tracking-wider uppercase mb-4">
+                        <i class="ph-fill ph-star"></i> Featured Case Study
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Scaling B2B SaaS ARR from $1M to $10M.</h2>
+                    <p class="text-slate-400 text-lg">A masterclass in restructuring Meta & LinkedIn ads, fixing attribution, and launching a high-converting demo funnel for 'CloudSync'.</p>
+                </div>
+                <a href="#" class="mt-6 md:mt-0 text-white hover:text-brand-400 font-medium flex items-center gap-2 transition-colors">
+                    Read Full Breakdown <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Dashboard Mockup UI -->
+            <div class="bg-[#0f172a] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl reveal delay-100">
+                <!-- Dashboard Header -->
+                <div class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-slate-500 text-sm font-medium ml-4">CloudSync Performance Dashboard (Q1 - Q4)</span>
+                    </div>
+                    <div class="text-slate-400 text-sm">Last updated: Today</div>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Metrics Column -->
+                    <div class="space-y-4">
+                        <div class="bg-slate-800/50 border border-slate-700/50 p-5 rounded-xl">
+                            <p class="text-slate-400 text-sm font-medium mb-1">Return on Ad Spend (ROAS)</p>
+                            <h4 class="text-3xl font-bold text-white">420%</h4>
+                            <div class="mt-2 text-xs font-medium text-green-400 flex items-center gap-1">
+                                <i class="ph-fill ph-arrow-up-right"></i> +115% vs previous year
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/50 border border-slate-700/50 p-5 rounded-xl">
+                            <p class="text-slate-400 text-sm font-medium mb-1">Cost Per Demo (CPL)</p>
+                            <h4 class="text-3xl font-bold text-white">$142</h4>
+                            <div class="mt-2 text-xs font-medium text-green-400 flex items-center gap-1">
+                                <i class="ph-fill ph-arrow-down-right"></i> -45% vs previous year
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/50 border border-slate-700/50 p-5 rounded-xl">
+                            <p class="text-slate-400 text-sm font-medium mb-1">Total Pipeline Generated</p>
+                            <h4 class="text-3xl font-bold text-white">$12.4M</h4>
+                            <div class="mt-2 text-xs font-medium text-brand-400">Target Exceeded by 24%</div>
+                        </div>
+                    </div>
+
+                    <!-- Chart Column -->
+                    <div class="lg:col-span-2 bg-slate-800/50 border border-slate-700/50 p-6 rounded-xl relative h-full min-h-[300px]">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg font-semibold text-white">Monthly Revenue vs Ad Spend</h3>
+                            <select class="bg-slate-900 border border-slate-700 text-sm rounded-lg px-3 py-1.5 text-slate-300 outline-none">
+                                <option>Last 12 Months</option>
+                            </select>
+                        </div>
+                        <div class="relative w-full h-[250px]">
+                            <canvas id="roasChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study Details Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 border-t border-slate-800 bg-slate-900/50">
+                    <div class="p-6 md:p-8 border-b md:border-b-0 md:border-r border-slate-800">
+                        <h4 class="text-brand-400 font-bold mb-3 flex items-center gap-2"><i class="ph ph-warning-circle text-xl"></i> The Challenge</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">High CAC on Google Ads ($350+) and zero traction on Meta. Traffic was bouncing off a generic homepage rather than a dedicated funnel. Attribution was broken, making it impossible to scale.</p>
+                    </div>
+                    <div class="p-6 md:p-8 border-b md:border-b-0 md:border-r border-slate-800">
+                        <h4 class="text-white font-bold mb-3 flex items-center gap-2"><i class="ph ph-lightbulb text-xl"></i> The Strategy</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Shifted focus to LinkedIn for high-ticket accounts and Meta for retargeting. Built 3 dedicated landing pages tailored to specific buyer personas (IT, HR, Finance). Implemented server-side tracking.</p>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h4 class="text-green-400 font-bold mb-3 flex items-center gap-2"><i class="ph ph-trophy text-xl"></i> The Results</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Dropped CAC by 45% in 60 days. Scaled monthly ad spend from $20k to $150k profitably. Generated 4,000+ demo requests resulting in $10M+ in closed-won ARR.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-sm font-bold text-brand-600 tracking-widest uppercase mb-2">Portfolio</h2>
+                <h3 class="text-4xl font-bold text-slate-900 tracking-tight">Featured Campaigns</h3>
+                <p class="text-slate-500 mt-4 text-lg">A selection of recent projects showcasing diverse strategies across B2B and E-commerce.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="bento-card overflow-hidden group reveal">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/0f172a/ffffff?text=Fintech+App+Growth" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Project 1">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm">B2C Fintech</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Fintech App Install Campaign</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">Leveraged TikTok and Meta UGC campaigns to drive low-cost app installs and initial deposits.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">-60%</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Cost Per Install</div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">120K</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">New Users</div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-slate-900 hover:text-brand-600 flex items-center gap-1">Read Case Study <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bento-card overflow-hidden group reveal delay-100">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/f8fafc?text=D2C+Fashion+Brand" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Project 2">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm">E-Commerce</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">D2C Fashion Scaling</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">Restructured Google PMax and Meta Advantage+ campaigns ahead of BFCM, yielding record sales.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">6.2x</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Peak ROAS</div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">$2.1M</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">BFCM Revenue</div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-slate-900 hover:text-brand-600 flex items-center gap-1">Read Case Study <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bento-card overflow-hidden group reveal delay-200">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/334155/f1f5f9?text=Lead+Gen+Agency" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Project 3">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm">B2B Services</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">High-Ticket Lead Generation</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">Built a VSL (Video Sales Letter) funnel and drove highly targeted YouTube Ads to agency owners.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">45%</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Lead-to-Call Rate</div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">$800k</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Pipeline</div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-slate-900 hover:text-brand-600 flex items-center gap-1">Read Case Study <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                 <!-- Project 4 -->
+                 <div class="bento-card overflow-hidden group reveal">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/475569/f8fafc?text=Local+Service+Franchise" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Project 4">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm">Local Lead Gen</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">National Franchise Rollout</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">Executed hyper-local Google Search campaigns across 50+ locations using dynamic keyword insertion.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">3x</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Lead Volume</div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">-30%</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">CPA</div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-slate-900 hover:text-brand-600 flex items-center gap-1">Read Case Study <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="bento-card overflow-hidden group reveal delay-100">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/64748b/f1f5f9?text=Health+Supplement" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Project 5">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm">Nutra E-com</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Supplement Subscription Growth</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">Optimized advertorial landing pages and launched aggressive Meta prospecting campaigns.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">5k+</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Active Subs</div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">2.8x</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Day-1 ROAS</div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-slate-900 hover:text-brand-600 flex items-center gap-1">Read Case Study <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="bento-card overflow-hidden group reveal delay-200">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/94a3b8/f8fafc?text=Real+Estate+Dev" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Project 6">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm">Real Estate</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Luxury Condo Presales</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">Designed premium Lead Generation forms on Meta integrated directly into Salesforce via Make.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">100%</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Sold Out</div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-lg text-center">
+                                <div class="text-lg font-bold text-brand-600">800+</div>
+                                <div class="text-[10px] text-slate-500 uppercase font-semibold">Qualified Leads</div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-slate-900 hover:text-brand-600 flex items-center gap-1">Read Case Study <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-24 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-sm font-bold text-brand-600 tracking-widest uppercase mb-2">Methodology</h2>
+                <h3 class="text-4xl font-bold text-slate-900 tracking-tight">The Growth Framework</h3>
+                <p class="text-slate-500 mt-4 text-lg">I don't rely on luck. I rely on a systematic process tested across millions in ad spend.</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto reveal">
+                <!-- Vertical Line for Desktop -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2"></div>
+
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="md:w-5/12 text-center md:text-right mb-4 md:mb-0">
+                            <h4 class="text-xl font-bold text-slate-900">1. Discovery & Audit</h4>
+                            <p class="text-slate-500 text-sm mt-2">Deep dive into historical data, pixel health, CRM setup, and current unit economics.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-white border-4 border-slate-100 group-hover:border-brand-500 transition-colors flex items-center justify-center text-slate-900 font-bold z-10 mx-auto md:mx-0 shadow-sm">1</div>
+                        <div class="md:w-5/12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center justify-between group">
+                        <div class="md:w-5/12 text-center md:text-left mb-4 md:mb-0">
+                            <h4 class="text-xl font-bold text-slate-900">2. Strategy & Funnel Mapping</h4>
+                            <p class="text-slate-500 text-sm mt-2">Designing the architecture. Offer creation, landing page wireframing, and channel selection.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-white border-4 border-slate-100 group-hover:border-brand-500 transition-colors flex items-center justify-center text-slate-900 font-bold z-10 mx-auto md:mx-0 shadow-sm">2</div>
+                        <div class="md:w-5/12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="md:w-5/12 text-center md:text-right mb-4 md:mb-0">
+                            <h4 class="text-xl font-bold text-slate-900">3. Creative Execution</h4>
+                            <p class="text-slate-500 text-sm mt-2">Writing direct-response copy and briefing designers/UGC creators for high-converting assets.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-white border-4 border-slate-100 group-hover:border-brand-500 transition-colors flex items-center justify-center text-slate-900 font-bold z-10 mx-auto md:mx-0 shadow-sm">3</div>
+                        <div class="md:w-5/12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center justify-between group">
+                        <div class="md:w-5/12 text-center md:text-left mb-4 md:mb-0">
+                            <h4 class="text-xl font-bold text-slate-900">4. Launch & Testing</h4>
+                            <p class="text-slate-500 text-sm mt-2">Deploying modular campaigns. Rapid A/B testing of hooks, audiences, and landing page elements.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-white border-4 border-slate-100 group-hover:border-brand-500 transition-colors flex items-center justify-center text-slate-900 font-bold z-10 mx-auto md:mx-0 shadow-sm">4</div>
+                        <div class="md:w-5/12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="md:w-5/12 text-center md:text-right mb-4 md:mb-0">
+                            <h4 class="text-xl font-bold text-slate-900">5. Optimization & Scale</h4>
+                            <p class="text-slate-500 text-sm mt-2">Killing losers, scaling winners. Implementing bid strategies and automated rules for stable growth.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-white border-4 border-brand-500 flex items-center justify-center text-brand-600 font-bold z-10 mx-auto md:mx-0 shadow-sm"><i class="ph-fill ph-rocket"></i></div>
+                        <div class="md:w-5/12 hidden md:block"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <!-- Experience -->
+            <div class="reveal">
+                <h3 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                    <i class="ph-fill ph-briefcase text-brand-500"></i> Work Experience
+                </h3>
+                
+                <div class="space-y-8 border-l-2 border-slate-200 pl-6 relative">
+                    <div class="relative">
+                        <div class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-brand-500 border-4 border-[#FAFAFA]"></div>
+                        <h4 class="text-xl font-bold text-slate-900">Head of Growth</h4>
+                        <p class="text-brand-600 font-medium text-sm mb-2">Acme SaaS Inc. • 2021 - Present</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-3">Managed $500k/mo ad spend across Meta and Google. Built the internal demand gen team. Scaled pipeline by 300% within the first year.</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded">B2B SaaS</span>
+                            <span class="text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded">Team Leadership</span>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-slate-300 border-4 border-[#FAFAFA]"></div>
+                        <h4 class="text-xl font-bold text-slate-900">Senior Media Buyer</h4>
+                        <p class="text-slate-600 font-medium text-sm mb-2">PerformX Agency • 2018 - 2021</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-3">Handled a portfolio of 12 E-commerce clients. Consistently achieved an average portfolio ROAS of 4.2x. Won 'Employee of the Year' in 2020.</p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-slate-300 border-4 border-[#FAFAFA]"></div>
+                        <h4 class="text-xl font-bold text-slate-900">Digital Marketing Specialist</h4>
+                        <p class="text-slate-600 font-medium text-sm mb-2">TechNova • 2016 - 2018</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">Cut my teeth on Google Ads and SEO. Learned the fundamentals of copywriting and landing page optimization.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="reveal delay-100">
+                <h3 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                    <i class="ph-fill ph-certificate text-brand-500"></i> Certifications
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white p-4 border border-slate-100 rounded-xl shadow-sm flex items-center gap-4 hover:border-brand-300 transition-colors">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-8 h-8">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Google Ads Search</h4>
+                            <p class="text-xs text-slate-500">Professional Certification</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 border border-slate-100 rounded-xl shadow-sm flex items-center gap-4 hover:border-brand-300 transition-colors">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Analytics" class="w-8 h-8">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Google Analytics (GA4)</h4>
+                            <p class="text-xs text-slate-500">Advanced Certified</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 border border-slate-100 rounded-xl shadow-sm flex items-center gap-4 hover:border-brand-300 transition-colors">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_%282021%29.svg" alt="Meta" class="w-8 h-8">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Meta Blueprint</h4>
+                            <p class="text-xs text-slate-500">Media Buying Professional</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 border border-slate-100 rounded-xl shadow-sm flex items-center gap-4 hover:border-brand-300 transition-colors">
+                        <div class="w-8 h-8 bg-[#ff7a59] rounded-full flex items-center justify-center text-white"><i class="ph-fill ph-hub"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">HubSpot</h4>
+                            <p class="text-xs text-slate-500">Inbound Marketing Expert</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Marquee Alternative (Static Grid for simplicity) -->
+                <h3 class="text-lg font-bold text-slate-900 mt-12 mb-4">Tech Stack</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">Meta Ads</span>
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">Google Ads</span>
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">GA4</span>
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">GTM</span>
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">Looker Studio</span>
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">Canva</span>
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">Figma</span>
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">Zapier</span>
+                    <span class="px-3 py-1.5 bg-white border border-slate-200 rounded text-sm text-slate-600 font-medium">ChatGPT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-t border-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-4xl font-bold text-slate-900 tracking-tight">Client Testimonials</h2>
+                <p class="text-slate-500 mt-4 text-lg">Don't just take my word for it.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-[#FAFAFA] p-8 rounded-2xl border border-slate-100 reveal relative">
+                    <i class="ph-fill ph-quotes text-4xl text-slate-200 absolute top-6 right-6"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Alex completely transformed our paid acquisition strategy. We went from burning cash on Google Ads to a predictable 4x ROAS within 3 months. Highly analytical and deeply understands the B2B buyer journey."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://placehold.co/100x100/cbd5e1/1e293b?text=Sarah" alt="Client" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-slate-900 text-sm">Sarah Jenkins</h5>
+                            <p class="text-xs text-slate-500">CMO, TechFlow</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-[#FAFAFA] p-8 rounded-2xl border border-slate-100 reveal delay-100 relative">
+                    <i class="ph-fill ph-quotes text-4xl text-slate-200 absolute top-6 right-6"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Rare to find a marketer who is equally skilled in media buying and landing page optimization. Alex rebuilt our entire D2C funnel and helped us hit our best Q4 ever. An absolute powerhouse."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://placehold.co/100x100/cbd5e1/1e293b?text=David" alt="Client" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-slate-900 text-sm">David Chen</h5>
+                            <p class="text-xs text-slate-500">Founder, Aura Athletics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-[#FAFAFA] p-8 rounded-2xl border border-slate-100 reveal delay-200 relative">
+                    <i class="ph-fill ph-quotes text-4xl text-slate-200 absolute top-6 right-6"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Before Alex, tracking was a mess. They implemented server-side tracking, fixed our GA4 setup, and finally gave us clear visibility into which campaigns were actually driving revenue, not just vanity metrics."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://placehold.co/100x100/cbd5e1/1e293b?text=Marcus" alt="Client" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-slate-900 text-sm">Marcus Vance</h5>
+                            <p class="text-xs text-slate-500">VP Marketing, Elevate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <!-- FAQ Section -->
+            <div class="reveal">
+                <h3 class="text-3xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h3>
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <details class="group bg-white border border-slate-200 rounded-xl p-6 open:shadow-md transition-all cursor-pointer">
+                        <summary class="font-semibold text-slate-900 list-none flex justify-between items-center outline-none">
+                            What is your primary area of expertise?
+                            <i class="ph ph-caret-down group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="text-slate-600 text-sm mt-4 leading-relaxed">I specialize in full-funnel performance marketing. This means I don't just run ads on Meta or Google; I build and optimize the entire user journey, from ad creative to landing page conversion rate optimization (CRO), ensuring maximum ROI.</p>
+                    </details>
+                    <!-- FAQ 2 -->
+                    <details class="group bg-white border border-slate-200 rounded-xl p-6 open:shadow-md transition-all cursor-pointer">
+                        <summary class="font-semibold text-slate-900 list-none flex justify-between items-center outline-none">
+                            Do you work with B2B or E-commerce?
+                            <i class="ph ph-caret-down group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="text-slate-600 text-sm mt-4 leading-relaxed">Both. The fundamental principles of direct-response marketing apply universally. For B2B, the focus is typically on lead quality, CRM integration, and pipeline velocity. For E-commerce, it's about CPA, average order value (AOV), and LTV.</p>
+                    </details>
+                    <!-- FAQ 3 -->
+                    <details class="group bg-white border border-slate-200 rounded-xl p-6 open:shadow-md transition-all cursor-pointer">
+                        <summary class="font-semibold text-slate-900 list-none flex justify-between items-center outline-none">
+                            Can you handle creative design as well?
+                            <i class="ph flow-caret-down group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="text-slate-600 text-sm mt-4 leading-relaxed">I write all direct-response copy and build wireframes. I am proficient in Figma and Canva for ad creatives, but for high-end video or complex graphics, I partner with or direct specialized creative teams.</p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Blog/Insights Section -->
+            <div class="reveal delay-100">
+                <h3 class="text-3xl font-bold text-slate-900 mb-8 flex justify-between items-center">
+                    Latest Insights
+                    <a href="#" class="text-sm font-medium text-brand-600 hover:underline">View All</a>
+                </h3>
+                <div class="space-y-4">
+                    <a href="#" class="flex gap-4 group p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-100">
+                        <div class="w-24 h-24 rounded-lg bg-slate-200 overflow-hidden flex-shrink-0">
+                            <img src="https://placehold.co/400x400/0f172a/ffffff?text=GA4" alt="Blog" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-brand-600">Analytics</span>
+                            <h4 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors line-clamp-2 mt-1">Surviving GA4: The Ultimate Guide for Performance Marketers</h4>
+                            <p class="text-xs text-slate-500 mt-2">Oct 12, 2025 • 5 min read</p>
+                        </div>
+                    </a>
+                    <a href="#" class="flex gap-4 group p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-100">
+                        <div class="w-24 h-24 rounded-lg bg-slate-200 overflow-hidden flex-shrink-0">
+                            <img src="https://placehold.co/400x400/1e293b/ffffff?text=UGC" alt="Blog" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-brand-600">Creative</span>
+                            <h4 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors line-clamp-2 mt-1">Why Ugly Ads Win: The Psychology Behind High-Converting UGC</h4>
+                            <p class="text-xs text-slate-500 mt-2">Sep 28, 2025 • 4 min read</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h2 class="text-5xl font-bold text-slate-900 tracking-tight mb-6">Let's scale your revenue.</h2>
+                <p class="text-lg text-slate-600 mb-8">Whether you need a fractional Head of Growth, a complete account audit, or a hands-on media buyer to scale your next campaign, I'm ready to help.</p>
+                
+                <div class="space-y-4 mb-8">
+                    <a href="mailto:hello@alexmercer.demo" class="flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-colors font-medium">
+                        <div class="w-12 h-12 rounded-full bg-[#FAFAFA] flex items-center justify-center border border-slate-100"><i class="ph-fill ph-envelope-simple text-xl"></i></div>
+                        hello@alexmercer.demo
+                    </a>
+                    <a href="#" class="flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-colors font-medium">
+                        <div class="w-12 h-12 rounded-full bg-[#FAFAFA] flex items-center justify-center border border-slate-100"><i class="ph-fill ph-linkedin-logo text-xl"></i></div>
+                        linkedin.com/in/alexmercer
+                    </a>
+                </div>
+
+                <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-900 font-medium rounded-full shadow-sm hover:bg-slate-50 transition-colors">
+                    <i class="ph ph-download-simple"></i> Download Resume
+                </a>
+            </div>
+
+            <!-- Modern Form / Calendly Placeholder -->
+            <div class="bg-[#FAFAFA] p-8 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/50 reveal delay-100">
+                <h3 class="text-2xl font-bold text-slate-900 mb-6">Send a Message</h3>
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('This is a demo portfolio. Form submission is mocked.');">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Name</label>
+                            <input type="text" class="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-all" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Company</label>
+                            <input type="text" class="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-all" placeholder="Acme Corp">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Email</label>
+                        <input type="email" class="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-all" placeholder="john@example.com" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Project Details</label>
+                        <textarea rows="4" class="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-all" placeholder="Tell me about your growth goals..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-600 text-white font-medium py-3 rounded-lg hover:bg-brand-700 transition-colors">
+                        Submit Request
+                    </button>
+                    <div class="text-center mt-4">
+                        <span class="text-xs text-slate-400">or</span>
+                    </div>
+                    <a href="https://calendly.com" target="_blank" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors flex justify-center items-center gap-2">
+                        <i class="ph-fill ph-calendar"></i> Book on Calendly
+                    </a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 py-8 text-center text-slate-400 text-sm border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Alex Mercer. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Scroll Reveal Logic (Intersection Observer)
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    
+                    // Trigger counters if it's the stats section
+                    const counters = entry.target.querySelectorAll('.counter');
+                    if (counters.length > 0) {
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000; // ms
+                            const increment = target / (duration / 16); // 60fps
+                            
+                            let current = 0;
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < target) {
+                                    counter.innerText = Math.ceil(current);
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target;
+                                }
+                            };
+                            updateCounter();
+                        });
+                        // Unobserve so it only animates once
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+            
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+
+            // 2. Sticky Navbar Styling on Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-sm');
+                    navbar.style.borderBottom = '1px solid rgba(226, 232, 240, 0.8)';
+                } else {
+                    navbar.classList.remove('shadow-sm');
+                    navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.3)';
+                }
+            });
+
+            // 3. Chart.js Implementation for Dashboard Mockup
+            const ctx = document.getElementById('roasChart').getContext('2d');
+            
+            // Gradient for chart line
+            let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(20, 184, 166, 0.5)'); // brand-500 with opacity
+            gradient.addColorStop(1, 'rgba(20, 184, 166, 0)');
+
+            const roasChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [
+                        {
+                            label: 'Revenue ($)',
+                            data: [120000, 190000, 250000, 320000, 310000, 450000, 520000, 610000, 750000, 890000, 1100000, 1250000],
+                            borderColor: '#14b8a6', // brand-500
+                            backgroundColor: gradient,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#14b8a6',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Ad Spend ($)',
+                            data: [40000, 55000, 65000, 80000, 75000, 95000, 105000, 120000, 140000, 160000, 190000, 210000],
+                            borderColor: '#64748b', // slate-500
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            pointRadius: 0,
+                            fill: false,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: '#94a3b8', font: { family: 'Inter' } }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            titleColor: '#fff',
+                            bodyColor: '#cbd5e1',
+                            borderColor: '#334155',
+                            borderWidth: 1,
+                            padding: 10,
+                            displayColors: true
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false, drawBorder: false },
+                            ticks: { color: '#64748b', font: { family: 'Inter' } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(51, 65, 85, 0.5)', drawBorder: false },
+                            ticks: { 
+                                color: '#64748b', 
+                                font: { family: 'Inter' },
+                                callback: function(value) {
+                                    if(value >= 1000000) return '$' + (value/1000000).toFixed(1) + 'M';
+                                    if(value >= 1000) return '$' + (value/1000).toFixed(0) + 'k';
+                                    return '$' + value;
+                                }
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
